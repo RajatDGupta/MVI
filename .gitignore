@@ -1,15 +1,45 @@
+# Built artifacts
+bin/
+gen/
+out/
+build/
+.gradle/
+
+# Android Studio / IntelliJ files
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.iws
+*.ipr
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Local configuration (SENSITIVE - Contains your local SDK path)
 local.properties
+
+# Keystore files (NEVER check these into public source control)
+*.jks
+*.keystore
+*.p12
+
+# Google Services configuration
+# (Often ignored if you use different environments for dev/prod)
+# google-services.json
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Mobile tools
+.navigation/
+assetPacks/
+
+# Bundletool
+*.apks
+*.aab
+
+# Profile or performance data
+*.hprof
