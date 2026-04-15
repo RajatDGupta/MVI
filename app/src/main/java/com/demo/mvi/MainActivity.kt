@@ -5,13 +5,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.demo.auth.ui.navigation.authGraph
+import com.demo.auth.ui.navigation.navigateToAuthGraph
+import com.demo.core.navigation.Route
 import com.demo.core.ui.theme.MVITheme
+import com.demo.home.ui.navigation.homeGraph
+import com.demo.home.ui.navigation.navigateToHomeGraph
+import com.demo.mvi.ui.SplashScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +26,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MVITheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    val navController = rememberNavController()
+                    App(navController)
                 }
             }
         }
@@ -31,17 +35,26 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun App(navController: androidx.navigation.NavHostController) {
+    NavHost(
+        navController = navController,
+        startDestination = Route.Splash
+    ) {
+        composable<Route.Splash> {
+            SplashScreen(onTimeout = {
+                navController.navigateToAuthGraph()
+            })
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MVITheme {
-        Greeting("Android")
+        authGraph(
+            onLoginSuccess = {
+                navController.navigateToHomeGraph()
+            },
+            onRegisterClick = {
+                // navController.navigate(Route.Register)
+            }
+        )
+
+        homeGraph()
     }
 }
