@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
@@ -46,6 +47,13 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
+    //compose
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material3)
+
     //hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
@@ -55,6 +63,9 @@ dependencies {
 
     //datastore
     implementation(libs.androidx.datastore.preferences)
+
+    //room
+    implementation(libs.bundles.room)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

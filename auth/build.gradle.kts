@@ -55,6 +55,9 @@ dependencies {
     //datastore
     implementation(libs.androidx.datastore.preferences)
 
+    //room
+    implementation(libs.bundles.room)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
