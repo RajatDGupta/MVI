@@ -47,6 +47,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":auth"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -65,6 +66,9 @@ dependencies {
 
     //datastore
     implementation(libs.androidx.datastore.preferences)
+
+    //room
+    implementation(libs.bundles.room)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
