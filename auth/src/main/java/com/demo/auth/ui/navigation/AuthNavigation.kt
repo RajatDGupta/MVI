@@ -7,15 +7,8 @@ import com.demo.core.navigation.Route
 
 fun EntryProviderScope<NavKey>.authEntries(
     onLoginSuccess: () -> Unit,
-    onRegisterClick: () -> Unit
 ) {
     entry<Route.Login> {
-        LoginScreen(
-            onLoginSuccess = onLoginSuccess,
-            onRegisterClick = onRegisterClick
-        )
-    }
-    entry<Route.Register> {
-        // RegisterScreen()
+        LoginScreen(onLoginSuccess)
     }
 }

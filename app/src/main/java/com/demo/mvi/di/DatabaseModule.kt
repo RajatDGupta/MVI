@@ -2,7 +2,7 @@ package com.demo.mvi.di
 
 import android.content.Context
 import androidx.room.Room
-import com.demo.auth.domain.UserDao
+import com.demo.auth.data.local.UserDao
 import com.demo.mvi.local.AppDatabase
 import dagger.Module
 import dagger.Provides
