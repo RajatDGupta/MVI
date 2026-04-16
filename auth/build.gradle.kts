@@ -70,6 +70,7 @@ dependencies {
 
     //room
     implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

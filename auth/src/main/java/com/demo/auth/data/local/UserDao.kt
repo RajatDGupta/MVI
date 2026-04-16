@@ -9,7 +9,7 @@ import com.demo.auth.data.dto.UserEntity
 @Dao
 interface UserDao {
 
-    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserEntity)
 
     @Query("SELECT * FROM users")

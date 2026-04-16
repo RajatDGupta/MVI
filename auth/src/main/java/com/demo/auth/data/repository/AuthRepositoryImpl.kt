@@ -13,7 +13,7 @@ class AuthRepositoryImpl @Inject constructor(val preferences: PreferenceDataStor
 
     override suspend fun login(email: String, password: String): AuthResult {
         preferences.put(PrefKeys.IS_LOGGED_IN,true)
-        userDao.insertUser(UserEntity(id = 1, email = email))
+        userDao.insertUser(UserEntity( email = email))
         return AuthResult.Success(UUID.randomUUID().toString(), UUID.randomUUID().toString(), "1", email);
     }
 

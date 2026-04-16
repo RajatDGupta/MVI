@@ -46,6 +46,10 @@ android {
     }
 }
 
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
 dependencies {
     implementation(project(":core"))
     implementation(project(":auth"))
@@ -71,6 +75,7 @@ dependencies {
 
     //room
     implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
 
     // Navigation 3
     implementation(libs.androidx.navigation3.runtime)
